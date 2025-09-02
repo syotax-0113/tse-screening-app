@@ -4,9 +4,7 @@ import yfinance as yf
 import time
 
 st.set_page_config(page_title="前日引け買いスクリーナー", layout="wide")
-st.title("前日引け買い 翌日寄り売りスクリーナー（東証全銘柄対応）<br /><br />条件<br />Yahoo Finance から直近10日分の株価データを取得<br />
-前日の出来高が直近5日平均より1.5倍以上か確認<br />
-前日の高値から終値の変動率が5%以上か確認")
+st.title("前日引け買い 翌日寄り売りスクリーナー（東証全銘柄対応）")
 
 # ———————————————
 # Google Drive にアップロードされた CSV を読み込む部分
@@ -73,3 +71,4 @@ st.success(f"スクリーニング完了: {len(candidates)} 銘柄ヒット")
 st.dataframe(df)
 csv = df.to_csv(index=False).encode("utf-8-sig")
 st.download_button("結果をCSVでダウンロード", data=csv, file_name="candidates.csv", mime="text/csv")
+
